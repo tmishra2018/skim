@@ -1,0 +1,17 @@
+universe = vanilla
+Executable = run_D.sh
+Arguments = $(process)
+Requirements = OpSys == "LINUX" && (Arch != "DUMMY" )
+request_disk = 10000000
+request_memory = 10000
+Should_Transfer_Files = YES
+Transfer_input_files = skim.C
+WhenToTransferOutput = ON_EXIT_OR_EVICT
+PeriodicRemove = ( JobStatus == 2 ) && ( ( CurrentTime - EnteredCurrentStatus ) > 600000 )
+Output = condor/D/Skim_SinglePhoton_$(cluster)_$(process).stdout
+Error  = condor/D/Skim_SinglePhoton_$(cluster)_$(process).stderr
+Log = condor/D/Skim_SinglePhoton_$(cluster)_$(process).condor
+notification = Error
+notify_user = tmishra@FNAL.GOV
+x509userproxy = $ENV(X509_USER_PROXY)
+Queue 93

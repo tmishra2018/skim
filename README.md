@@ -1,4 +1,4 @@
-# skim
+# skimming_script
 
 Compile the skimming script, skim.C
 
@@ -17,3 +17,4 @@ It will produce run_B.sh, batch_B.jdl
 Then, submit the condor job. For e.g. :
 
 condor_submit batch_B.jdl
+
